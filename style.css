@@ -9,6 +9,14 @@
 *{
     margin: 0;
     padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root{
+    --font-primary: "Baloo 2", serif;
+    --font-secundary: "Orbitron", serif;
+    --font-action: "Gemunu Libre", serif;
 }
 
 header{
@@ -16,6 +24,46 @@ header{
     height: 100vh;
     overflow: hidden;
     position: relative;
+}
+
+.hamburguer{
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 3rem;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+.show-menu .hamburguer{
+    right: 14rem;
+}
+
+.line{
+    width: 100%;
+    background-color: white;
+    height: .1rem;
+    box-shadow: .1rem .1rem 1px black;
+    transition: transform 1s;
+}
+
+.show-menu #line2{
+    opacity: 0;
+}
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(12px);
+
+
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(8px);
+    
 }
 
 .img-wrapper{
@@ -48,8 +96,8 @@ header{
 }
 .banner h1{
     color: white;
-    font-size: 3.5rem;
-    font-family: "Baloo 2", serif;
+    font-size: clamp(3.5rem, 0.7153rem + 1.6368vw, 1.5rem);
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .2rem .2rem 2px rgba(202, 202, 202, 0.4);
     line-height: 4rem;
@@ -60,8 +108,8 @@ header{
 
 .banner p{
     color: white;
-    font-size: 3rem;
-    font-family: "Orbitron" , serif;
+    font-size: clamp(3rem, 0.7153rem + 1.6368vw, 1.5rem);
+    font-family: var(--font-secundary);
     text-shadow: .2rem .2rem 2px rgba(202, 202, 202, 0.4);
     margin-bottom: 1rem;
     margin-top: 7rem;
@@ -70,8 +118,8 @@ header{
 }
 
 .banner button{
-    font-family: "Gemunu Libre" , serif;
-    font-size: 1.5rem;
+    font-family: var(--font-action);
+    font-size: clamp(1.5rem, 0.7153rem + 1.6368vw, 1.5rem);
     letter-spacing: .2rem;
     text-transform: uppercase;
     color: white;
@@ -84,6 +132,7 @@ header{
     cursor: pointer;
     opacity: 0;
     animation: movebanner 1s 0.9s forwards;
+    
 }
 
 .banner button:hover{
@@ -98,4 +147,70 @@ header{
         transform: translateY(0) rotateX(0);
         opacity: 1;
     }
+}
+
+.sidebar{
+    width: 20rem;
+    height: 100vh;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: -20rem;
+    transition: all .5s;
+}
+
+.show-menu .sidebar{
+    right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.menu-item{
+    margin-bottom: .5rem;
+    text-align: center;
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    line-height: 4rem;
+    color: grey;
+
+}
+
+.menu-link:hover{
+    color: #ED213A;
+    transition: color 1s;
+}
+
+.social-midia{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-midia i{
+    background-color: black;
+    color: grey;
+    display: flex;
+    height: 2.3rem;
+    width: 2.3rem;
+    font-size: 2rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: .3rem;
+}
+
+.social-midia i:hover{
+    color: black;
+    background-color: gray;
+    transition: color .5s;
+    transition: background-color .1s;
 }
